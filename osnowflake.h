@@ -54,6 +54,8 @@ extern osf_weekday_time_t osf_generation_time_weekday(int64_t nsec);
 
 extern int64_t osf_generation_time_year(int64_t nsec);
 
+extern void osf_base32_free(uint8_t* bs, size_t len);
+
 #ifdef __cplusplus
 }
 #endif

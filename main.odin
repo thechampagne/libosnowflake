@@ -33,8 +33,6 @@ osf_weekday_time_t :: enum c.int {
 	OSF_WEEKDAY_TIME_SATURDAY,
 }
 
-
-
 @export osf_generate :: proc(machine_id: c.int64_t) -> c.int64_t {
     return generate(machine_id)
 }
@@ -82,4 +80,10 @@ osf_weekday_time_t :: enum c.int {
 @export osf_generation_time_year :: proc(nsec: c.int64_t) -> c.int64_t {
     t := time.Time{nsec}
     return c.int64_t(time.year(t))
+}
+
+@export osf_base32_free :: proc(bs: [^]byte, len: c.size_t) {
+    if bs != nil {
+	delete(bs[:len])
+    }
 }
